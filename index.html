@@ -12,6 +12,8 @@
     <title>Bate-Papo UOL</title>
 </head>
 <body>
+    <div class="background" onclick="hideSidebar()">
+    </div>
     <section>
         <header>
             <div>
@@ -23,7 +25,7 @@
         </header>
         <main>
             <p class="private">teste</p>
-            <p class="on-off">teste</p>
+            <p class="status">teste</p>
             <p>teste</p>
         </main>
         <footer>
@@ -38,41 +40,43 @@
 
         <h2 class="contacts">Escolha um contato<br>para enviar mensagem:</h2>
 
-        <div>
-            <ion-icon name="people-sharp"></ion-icon>
-            <p>Todos</p>
-            <ion-icon class="checkmark hidden" name="checkmark-sharp"></ion-icon>
-        </div>
-
-        <div>
-            <ion-icon name="person-circle-sharp"></ion-icon>
-            <p>João</p>
-            <ion-icon class="checkmark hidden" name="checkmark-sharp"></ion-icon>
-        </div>
-
-        <div>
-            <ion-icon name="person-circle-sharp"></ion-icon>
-            <p>Maria</p>
-            <ion-icon class="checkmark hidden" name="checkmark-sharp"></ion-icon>
-        </div>
+        <menu class="menuContacts">
+            <div class="contactOption1" onclick="marked('.contactOption1')">
+                <ion-icon name="people-sharp"></ion-icon>
+                <p>Todos</p>
+                <ion-icon class="checkmark hidden" name="checkmark-sharp"></ion-icon>
+            </div>
+            <div class="contactOption2" onclick="marked('.contactOption2')">
+                <ion-icon name="person-circle-sharp"></ion-icon>
+                <p>João</p>
+                <ion-icon class="checkmark hidden" name="checkmark-sharp"></ion-icon>
+            </div>
+            <div class="contactOption3" onclick="marked('.contactOption3')">
+                <ion-icon name="person-circle-sharp"></ion-icon>
+                <p>Maria</p>
+                <ion-icon class="checkmark hidden" name="checkmark-sharp"></ion-icon>
+            </div>
+        </menu>
 
         <h2 class="visibility">Escolha a visibilidade:</h2>
         
-        <div>
-            <ion-icon name="lock-open-sharp"></ion-icon>
-            <p>Público</p>
-            <ion-icon class="checkmark hidden" name="checkmark-sharp"></ion-icon>
-        </div>
-
-        <div>
-            <ion-icon name="lock-closed-sharp"></ion-icon>
-            <p>Reservadamente</p>
-            <ion-icon class="checkmark hidden" name="checkmark-sharp"></ion-icon>
-        </div>
+        <menu class="menuVisibility">
+            <div class="visibilityOption1" onclick="marked('.visibilityOption2')">
+                <ion-icon name="lock-open-sharp"></ion-icon>
+                <p>Público</p>
+                <ion-icon class="checkmark hidden" name="checkmark-sharp"></ion-icon>
+            </div>
+            <div class="visibilityOption2" onclick="marked('.visibilityOption1')">
+                <ion-icon name="lock-closed-sharp"></ion-icon>
+                <p>Reservadamente</p>
+                <ion-icon class="checkmark hidden" name="checkmark-sharp"></ion-icon>
+            </div>
+        </menu>
 
     </aside>
 
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

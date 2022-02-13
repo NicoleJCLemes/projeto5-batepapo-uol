@@ -17,10 +17,20 @@
 body {
     font-family: 'Roboto', sans-serif;
     display: flex;
+    position: relative;
+}
+
+.dark {
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    width: 100%;
+    position: absolute;
+    height: 667px;
 }
 
 section {
     width: 100%;
+    z-index: 0;
 }
 
 header {
@@ -65,11 +75,19 @@ main p {
     padding: 15px 8px;
 }
 
+time {
+    color: #aaaaaa;
+}
+
+b{
+    font-weight: 700;
+}
+
 .private {
     background-color: #FFDEDE;
 }
 
-.on-off {
+.status {
     background-color: #aaaaaa;
 }
 

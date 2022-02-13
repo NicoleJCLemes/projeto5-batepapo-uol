@@ -50,7 +50,7 @@ function showMessages(msg){
 
     if(msg.type === "status") {
         insert.innerHTML = insert.innerHTML + `
-        <p class="status"><time>(${msg.time})</time> <b>${msg.from}</b> para <b>${msg.to}</b>: ${msg.text}</p>
+        <p class="status"><time>(${msg.time})</time> <b>${msg.from}</b>: ${msg.text}</p>
         `
     } else if ((msg.type === "private_message") && ((msg.from === answer) || (msg.to === answer))){
         insert.innerHTML = insert.innerHTML + `
@@ -61,7 +61,22 @@ function showMessages(msg){
         <p><time>(${msg.time})</time> <b>${msg.from}</b> para <b>${msg.to}</b>: ${msg.text}</p>
         `
     }
+
+    let lastMessages = document.querySelector("section main p:last-child");
+    lastMessages.scrollIntoView();
 }
+
+function reloadMessages(){
+    const reload = axios.get("https://mock-api.driven.com.br/api/v4/uol/messages");
+    reload.then(takeMessages);
+}
+
+/*function eraseMessages(){
+    const insert = document.querySelector("section main");
+    insert.innerHTML = "";
+}*/
+
+setInterval(reloadMessages,3000);
 
 function showSidebar() {
     const sidebar = document.querySelector("aside");
@@ -83,4 +98,5 @@ function hideSidebar() {
     check.classList.add("hidden");
     unchecked.classList.remove("hidden");
 }*/
+
 

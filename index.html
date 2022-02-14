@@ -28,7 +28,7 @@
         </main>
         <footer>
             <input type="text" placeholder="Escreva aqui...">
-            <button onclick="sendMessage()">
+            <button data-identifier="send-message" onclick="sendMessage()">
                 <ion-icon name="paper-plane-outline"></ion-icon>
             </button>
         </footer>
@@ -38,17 +38,17 @@
 
         <h2 class="contacts">Escolha um contato<br>para enviar mensagem:</h2>
 
-        <menu class="menuContacts">
+        <menu>
             <div>
                 <ion-icon name="person-circle-sharp"></ion-icon>
-                <p>Todos</p>
+                <p data-identifier="participant">Todos</p>
                 <ion-icon class="checkmark hidden" name="checkmark-sharp"></ion-icon>
             </div>
         </menu>
 
         <h2 class="visibility">Escolha a visibilidade:</h2>
         
-        <menu class="menuVisibility">
+        <menu>
             <div>
                 <ion-icon name="lock-open-sharp"></ion-icon>
                 <p>Público</p>

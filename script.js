@@ -53,15 +53,15 @@ function showMessages(msg){
     
     if(msg.type === "status") {
         insert.innerHTML = insert.innerHTML + `
-        <p class="status"><time>(${msg.time})</time> <b>${msg.from}</b>: ${msg.text}</p>
+        <p data-identifier="message" class="status"><time>(${msg.time})</time> <b>${msg.from}</b>: ${msg.text}</p>
         `
     } else if ((msg.type === "private_message") && ((msg.from === answer) || (msg.to === answer))){
         insert.innerHTML = insert.innerHTML + `
-        <p class="private"><time>(${msg.time})</time> <b>${msg.from}</b> reservadamente para <b>${msg.to}</b>: ${msg.text}</p>
+        <p data-identifier="message" class="private"><time>(${msg.time})</time> <b>${msg.from}</b> reservadamente para <b>${msg.to}</b>: ${msg.text}</p>
         `
-    } else {
+    } else if (msg.type === "message") {
         insert.innerHTML = insert.innerHTML + `
-        <p class="normal"><time>(${msg.time})</time> <b>${msg.from}</b> para <b>${msg.to}</b>: ${msg.text}</p>
+        <p data-identifier="message" class="normal"><time>(${msg.time})</time> <b>${msg.from}</b> para <b>${msg.to}</b>: ${msg.text}</p>
         `
     }
 
@@ -75,7 +75,7 @@ function reloadMessages(){
 }
 
 setInterval(reloadMessages,3000);
-setInterval(reloadPeople,3000);
+setInterval(reloadPeople,10000);
 
 function showSidebar() {
     const sidebar = document.querySelector("aside");
@@ -90,13 +90,6 @@ function hideSidebar() {
     const section = document.querySelector(".background");
     section.classList.remove("dark");
 }
-
-/*function marked(selected) {   ---tá cagado---
-    const check = document.querySelector(".checkmark");
-    const unchecked = document.querySelector(`${selected} .checkmark`);
-    check.classList.add("hidden");
-    unchecked.classList.remove("hidden");
-}*/
 
 const people = axios.get("https://mock-api.driven.com.br/api/v4/uol/participants");
 people.then(takeParticipants);
@@ -113,7 +106,7 @@ function showParticipants(participants){
     insert.innerHTML = insert.innerHTML + `
         <div>
             <ion-icon name="person-circle-sharp"></ion-icon>
-            <p>${participants.name}</p>
+            <p data-identifier="participant">${participants.name}</p>
             <ion-icon class="checkmark hidden" name="checkmark-sharp"></ion-icon>
         </div>
     `
@@ -138,6 +131,13 @@ function sendMessage(){
     send.catch(reloadPage);
     eraseInputValue();
 }
+
+document.addEventListener("keypress", function(e) {
+    if(e.key === 'Enter') {
+        let button = document.querySelector("footer button");
+        button.click();
+    }
+  });
 
 function eraseInputValue(){
     document.querySelector("footer input").value = "";

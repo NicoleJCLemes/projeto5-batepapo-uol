@@ -21,7 +21,7 @@ body {
     z-index: 1;
     width: 100%;
     position: absolute;
-    height: 667px;
+    height: 100%;
 }
 
 section {
@@ -71,6 +71,9 @@ main p {
     font-size: 14px;
     padding: 15px 8px;
     margin-bottom: 4px;
+    word-wrap: break-word;
+    word-break: normal;
+    line-height: 17px;
 }
 
 time {
@@ -83,20 +86,14 @@ b{
 
 .private {
     background-color: #FFDEDE;
-    word-wrap: break-word;
-    word-break: normal;
 }
 
 .status {
     background-color: #DCDCDC;
-    word-wrap: break-word;
-    word-break: normal;
 }
 
 .normal {
     background-color: #ffffff;
-    word-wrap: break-word;
-    word-break: normal;
 }
 
 footer {
@@ -148,13 +145,13 @@ aside {
     position: fixed;
     right: 0;
     overflow: scroll;
+    padding-bottom: 28px;
 }
 
 .contacts {
     height: 84px;
     font-weight: 700;
     font-size: 16px;
-    line-height: px;
     text-align: center;
     padding: 28px 35px;
 }
@@ -170,12 +167,18 @@ aside {
 aside div {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
+    word-wrap: break-word;
+    word-break: normal;
 }
 
 aside ion-icon {
-    margin: 12px 8px 6px 18px;
+    padding: 12px 8px 6px 12px;
+    font-size: 16px;
+    width: 42px;
 }
 
 aside p {
-    margin: 12px 0 6px 0;
+    margin: 12px 8px 6px 0;
+    width: 194px;
 }

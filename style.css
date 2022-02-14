@@ -83,10 +83,20 @@ b{
 
 .private {
     background-color: #FFDEDE;
+    word-wrap: break-word;
+    word-break: normal;
 }
 
 .status {
     background-color: #DCDCDC;
+    word-wrap: break-word;
+    word-break: normal;
+}
+
+.normal {
+    background-color: #ffffff;
+    word-wrap: break-word;
+    word-break: normal;
 }
 
 footer {
@@ -108,6 +118,11 @@ footer input {
     font-style: italic;
     font-weight: 400;
     font-size: 18px;
+}
+
+footer input:focus {
+    box-shadow: none;
+    outline: none;
 }
 
 footer input::placeholder {
@@ -132,6 +147,7 @@ aside {
     height: 100%;
     position: fixed;
     right: 0;
+    overflow: scroll;
 }
 
 .contacts {

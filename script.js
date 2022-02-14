@@ -7,12 +7,10 @@ let input = "";
 
 function statusOnOff() {
     const promise = axios.post("https://mock-api.driven.com.br/api/v4/uol/status", personName);
-    promise.then(success);
     promise.catch(failed);
 }
 
 const inicialPromise = axios.post("https://mock-api.driven.com.br/api/v4/uol/participants", personName);
-inicialPromise.then(success);
 inicialPromise.catch(error);
 
 function error(nameError) {
@@ -25,17 +23,11 @@ function error(nameError) {
     }
     const inicialPromise = axios.post("https://mock-api.driven.com.br/api/v4/uol/participants", personName);
     inicialPromise.catch(error);
-    inicialPromise.then(success);
 }
 
 function failed(nameError) {
     console.log(nameError.response.status);
 }
-
-function success(success) {
-    console.log(success.status);
-}
-
 setInterval(statusOnOff, 5000);
 
 const message = axios.get("https://mock-api.driven.com.br/api/v4/uol/messages");
